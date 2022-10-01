@@ -1,0 +1,4 @@
+1- When defining enum's at typeDefs.js you can't use Turkish letters.
+2- Query type name at the typeDefs.js should be same name with the resolving arrow func. in resolver.js
+3- To define a default value in GraphQL like  " age: Int = 18 " you can use an equal sign only if its not a required field.
+4- 
