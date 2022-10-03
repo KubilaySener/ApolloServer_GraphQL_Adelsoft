@@ -1,8 +1,4 @@
 const { ApolloServer } = require("apollo-server");
-const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
-const cors = require("cors");
-const express = require("express");
-const http = require("http");
 const db = require("./db");
 const typeDefs = require("./graphql/typedefs");
 const resolvers = require("./graphql/resolvers");
