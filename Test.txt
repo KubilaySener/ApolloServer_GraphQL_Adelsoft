@@ -1,0 +1,155 @@
+getCustomers: 
+
+query Query {
+    getCustomers {
+      id
+      customerName
+      customerAddress
+      customerPhone
+      customerStatus
+      customerSalesPerson
+      customerNote
+    }
+  }
+  
+Result : 
+
+  {
+  "data": {
+    "getCustomers": [
+      {
+        "id": "BpXdttKnbBxTdwxzpLy7",
+        "customerName": "Test Customer",
+        "customerAddress": "Test Addresss",
+        "customerPhone": "541254584",
+        "customerStatus": "Active",
+        "customerSalesPerson": "Kubilay",
+        "customerNote": "Notes for test"
+      }
+    ]
+  }
+}
+----------------------------------------------------------------------------------
+getCustomer : 
+
+query Query($getCustomerId: ID!) {
+  getCustomer(id: $getCustomerId) {
+    id
+    customerName
+    customerAddress
+    customerPhone
+    customerStatus
+    customerSalesPerson
+    customerNote
+  }
+}
+
+Variables : 
+
+{
+  "getCustomerId": "BpXdttKnbBxTdwxzpLy7"
+}
+
+Result : 
+{
+  "data": {
+    "getCustomer": {
+      "id": "BpXdttKnbBxTdwxzpLy7",
+      "customerName": "Test Customer",
+      "customerAddress": "Test Addresss",
+      "customerPhone": "541254584",
+      "customerStatus": "Active",
+      "customerSalesPerson": "Kubilay",
+      "customerNote": "Notes for test"
+    }
+  }
+}
+
+
+----------------------------------------------------------------------------------
+addCustomer : 
+
+mutation Mutation($input: CustomerInput!) {
+  addCustomer(input: $input) {
+    success
+    message
+  }
+}
+Variables : 
+{
+  "input": {
+    "customerName": "Kubilay",
+    "customerAddress": "Test Customer Address",
+    "customerPhone": "555 555 5555",
+    "customerStatus": "Deactive",
+    "customerSalesPerson": "Bektaş",
+    "customerNote": "Customer adding test"
+  }
+}
+Result : 
+
+{
+  "data": {
+    "addCustomer": {
+      "success": true,
+      "message": "Instance Added"
+    }
+  }
+}
+
+----------------------------------------------------------------------------------
+updateCustomer : 
+
+mutation Mutation($input: CustomerInput!, $updateCustomerId: ID!) {
+  updateCustomer(input: $input, id: $updateCustomerId) {
+    success
+    message
+  }
+}
+
+Variables : 
+{
+  "updateCustomerId": "BpXdttKnbBxTdwxzpLy7",
+  "input": {
+  "customerName": "Bektaş",
+    "customerAddress": "Test Customer Update Address",
+    "customerPhone": "555 555 5535",
+    "customerStatus": "Active",
+    "customerSalesPerson": "Kubilay",
+    "customerNote": "Customer updating test"
+  }
+}
+Result : 
+
+{
+  "data": {
+    "updateCustomer": {
+      "success": true,
+      "message": "Instance Updated"
+    }
+  }
+}
+
+----------------------------------------------------------------------------------
+deleteCustomer : 
+mutation DeleteCustomer($deleteCustomerId: ID!) {
+  deleteCustomer(id: $deleteCustomerId) {
+    success
+    message
+  }
+}
+Variables : 
+
+{
+  "deleteCustomerId":  "BpXdttKnbBxTdwxzpLy7"
+}
+Result : 
+
+{
+  "data": {
+    "deleteCustomer": {
+      "success": true,
+      "message": "Instance Deleted"
+    }
+  }
+}

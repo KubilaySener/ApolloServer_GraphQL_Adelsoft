@@ -22,18 +22,19 @@ const customerType = gql`
     
   }
   type ResponseAll{
+    data:String
     success: Boolean!
     message: String!
   }
 
   extend type Query {
-    getCustomers: [Customer!]! 
-    getCustomer(id: ID!): Customer! 
+    getCustomers: [Customer!]!
+    getCustomer(id: ID!): Customer!
   }
   extend type Mutation {
-    addCustomer(input: CustomerInput!): Customer!
-    updateCustomer(id: ID!, input: CustomerInput!): Customer!
-    deleteCustomer(id: ID!): Customer
+    addCustomer(input: CustomerInput!): ResponseAll!
+    updateCustomer(id: ID!, input: CustomerInput!): ResponseAll!
+    deleteCustomer(id: ID!): ResponseAll!
   }
 `;
 
