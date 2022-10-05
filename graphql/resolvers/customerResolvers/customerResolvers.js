@@ -69,7 +69,7 @@ module.exports = {
         };
       }
     },
-    // Delete instance by id
+    // Delete instance by id // Future Reminder : Delete products with customer.
     deleteCustomer: async (parent, args, context) => {
       try {
         const customercode = args.id;

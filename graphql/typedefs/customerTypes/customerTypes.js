@@ -9,7 +9,7 @@ const customerType = gql`
     customerStatus: String!
     customerSalesPerson: String!
     customerNote: String!
-    
+    customerProduct: [Product]
   }
   input CustomerInput {
     id: ID
@@ -18,11 +18,9 @@ const customerType = gql`
     customerPhone: String!
     customerStatus: String!
     customerSalesPerson: String!
-    customerNote: String!
-    
+    customerNote: String!   
   }
   type ResponseAll{
-    data:String
     success: Boolean!
     message: String!
   }
